@@ -1,3 +1,4 @@
+
 # 使用官方 Node.js 镜像作为基础镜像
 FROM node:lts-alpine3.18
 
@@ -8,6 +9,11 @@ WORKDIR /app
 COPY . .
 
 # EXPOSE 3000
+# The error message indicates that a TCP port needs to be exposed in the Dockerfile.
+# EXPOSE is used to inform Docker that a container listens on the specified network ports at runtime.
+# Adding the correct port reference to EXPOSE.
+
+EXPOSE 3000
 
 # 安装应用程序的依赖
 RUN npm install
